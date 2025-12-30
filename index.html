@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Faizan | Portfolio</title>
     <link rel="icon" type="image/png" href="image_6.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
     <style>
         /* --- CSS RESET & VARIABLES --- */
         :root {
@@ -40,7 +43,8 @@
         }
 
         /* Ambient Background Glows */
-        body::before, body::after {
+        body::before,
+        body::after {
             content: '';
             position: absolute;
             width: 500px;
@@ -50,8 +54,18 @@
             opacity: 0.2;
             z-index: -1;
         }
-        body::before { top: -10%; left: -10%; background: var(--primary-cyan); }
-        body::after { bottom: 10%; right: -10%; background: var(--primary-purple); }
+
+        body::before {
+            top: -10%;
+            left: -10%;
+            background: var(--primary-cyan);
+        }
+
+        body::after {
+            bottom: 10%;
+            right: -10%;
+            background: var(--primary-purple);
+        }
 
         /* --- NAVBAR WITH GLASSMORPHISM --- */
         header {
@@ -104,9 +118,20 @@
             align-items: center;
             gap: 8px;
         }
-        .nav-link:hover, .nav-item.active .nav-link { color: var(--primary-cyan); }
-        .nav-link i { font-size: 12px; transition: transform 0.3s; }
-        .nav-item.active .nav-link i { transform: rotate(180deg); }
+
+        .nav-link:hover,
+        .nav-item.active .nav-link {
+            color: var(--primary-cyan);
+        }
+
+        .nav-link i {
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+
+        .nav-item.active .nav-link i {
+            transform: rotate(180deg);
+        }
 
         /* Dropdown Menu Styling */
         .dropdown-menu {
@@ -119,7 +144,7 @@
             border: 1px solid var(--glass-border);
             border-radius: 12px;
             padding: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             opacity: 0;
             visibility: hidden;
             transform: translateY(15px);
@@ -135,7 +160,7 @@
                 transform: translateY(0);
             }
         }
-        
+
         /* Show dropdown on click for mobile (handled by JS adding .active class) */
         .nav-item.active .dropdown-menu {
             opacity: 1;
@@ -147,7 +172,10 @@
         .dropdown-menu li {
             margin-bottom: 10px;
         }
-        .dropdown-menu li:last-child { margin-bottom: 0; }
+
+        .dropdown-menu li:last-child {
+            margin-bottom: 0;
+        }
 
         .dropdown-menu a {
             display: block;
@@ -158,10 +186,12 @@
             transition: 0.2s;
             line-height: 1.4;
         }
+
         .dropdown-menu a:hover {
             background: var(--glass-bg);
             color: var(--primary-cyan);
         }
+
         .dropdown-header {
             font-size: 13px;
             color: var(--primary-purple);
@@ -184,13 +214,16 @@
             transition: 0.3s;
             border: 1px solid transparent;
         }
+
         .nav-btn:hover {
             box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
             transform: scale(1.05);
         }
 
         /* Menu Toggle Button (Hidden) */
-        .menu-toggle { display: none; }
+        .menu-toggle {
+            display: none;
+        }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -227,6 +260,7 @@
             line-height: 1.1;
             margin-bottom: 15px;
         }
+
         .name-gradient {
             background: linear-gradient(to right, var(--primary-cyan), var(--primary-purple));
             -webkit-background-clip: text;
@@ -240,7 +274,11 @@
             font-weight: 400;
             margin-bottom: 25px;
         }
-        .subtitle b { color: var(--text-white); font-weight: 600; }
+
+        .subtitle b {
+            color: var(--text-white);
+            font-weight: 600;
+        }
 
         /* Experience Glass Card */
         .exp-card {
@@ -255,9 +293,23 @@
             margin-bottom: 30px;
             border-left: 4px solid var(--primary-purple);
         }
-        .exp-card i { font-size: 24px; color: var(--primary-cyan); }
-        .exp-text h4 { font-size: 17px; color: var(--text-white); font-weight: 600; }
-        .exp-text p { font-size: 13px; color: var(--text-gray); margin-top: 3px; }
+
+        .exp-card i {
+            font-size: 24px;
+            color: var(--primary-cyan);
+        }
+
+        .exp-text h4 {
+            font-size: 17px;
+            color: var(--text-white);
+            font-weight: 600;
+        }
+
+        .exp-text p {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: 3px;
+        }
 
         /* Hero Description */
         .description {
@@ -271,9 +323,22 @@
         /* --- BUTTONS & SOCIALS --- */
         .btn-group {
             display: flex;
-            gap: 20px;
+            gap: 15px;
+            /* Reduced gap to fit all in one line */
             margin-bottom: 40px;
             flex-wrap: wrap;
+            /* Allow wrapping on very small screens, but aim for line */
+            justify-content: center;
+            /* Center them if they wrap or on mobile */
+        }
+
+        @media (min-width: 1024px) {
+            .btn-group {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+            }
+
+            /* Force single line on desktop */
         }
 
         /* Cyan Glow Button (Hire Me) */
@@ -285,8 +350,11 @@
             border-radius: 50px;
             transition: 0.3s;
             box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
-            display: flex; align-items: center; gap: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+
         .btn-cyan:hover {
             transform: translateY(-4px);
             box-shadow: 0 0 35px rgba(6, 182, 212, 0.6);
@@ -302,8 +370,11 @@
             border-radius: 50px;
             border: 2px solid var(--whatsapp-green);
             transition: 0.3s;
-            display: flex; align-items: center; gap: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+
         .btn-whatsapp:hover {
             background: var(--whatsapp-green);
             color: #fff;
@@ -320,8 +391,11 @@
             border-radius: 50px;
             border: 2px solid #6FDA44;
             transition: 0.3s;
-            display: flex; align-items: center; gap: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+
         .btn-upwork:hover {
             background: #6FDA44;
             color: #fff;
@@ -335,11 +409,39 @@
             fill: currentColor;
         }
 
+        /* Fiverr Green Button */
+        .btn-fiverr {
+            padding: 14px 32px;
+            background: transparent;
+            color: #1dbf73;
+            font-weight: 600;
+            border-radius: 50px;
+            border: 2px solid #1dbf73;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-fiverr:hover {
+            background: #1dbf73;
+            color: #fff;
+            box-shadow: 0 0 30px rgba(29, 191, 115, 0.5);
+            transform: translateY(-4px);
+        }
+
         /* Social Icons with Individual Hover Colors */
-        .social-links { display: flex; gap: 15px; }
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
         .social-icon {
-            width: 45px; height: 45px;
-            display: flex; align-items: center; justify-content: center;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: 50%;
@@ -347,11 +449,35 @@
             font-size: 18px;
             transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
-        .social-icon:hover { transform: translateY(-5px); color: white; }
-        .fb:hover { background: #1877F2; border-color: #1877F2; box-shadow: 0 0 20px rgba(24, 119, 242, 0.4); }
-        .ig:hover { background: #E4405F; border-color: #E4405F; box-shadow: 0 0 20px rgba(228, 64, 95, 0.4); }
-        .wa:hover { background: #25D366; border-color: #25D366; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
-        .li:hover { background: #0A66C2; border-color: #0A66C2; box-shadow: 0 0 20px rgba(10, 102, 194, 0.4); }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        .fb:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+            box-shadow: 0 0 20px rgba(24, 119, 242, 0.4);
+        }
+
+        .ig:hover {
+            background: #E4405F;
+            border-color: #E4405F;
+            box-shadow: 0 0 20px rgba(228, 64, 95, 0.4);
+        }
+
+        .wa:hover {
+            background: #25D366;
+            border-color: #25D366;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .li:hover {
+            background: #0A66C2;
+            border-color: #0A66C2;
+            box-shadow: 0 0 20px rgba(10, 102, 194, 0.4);
+        }
 
         /* --- HERO IMAGE SECTION --- */
         .hero-img-container {
@@ -386,11 +512,17 @@
             object-fit: cover;
             object-position: center;
             border-radius: 50%;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
         }
+
         @keyframes rotateRing {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* --- MOBILE RESPONSIVENESS (UPDATED for Horizontal Straight Line Menu) --- */
@@ -400,11 +532,16 @@
                 /* Kept horizontal layout */
             }
 
-            .nav-btn { display: none; } /* Hide contact button to save space */
+            .nav-btn {
+                display: none;
+            }
+
+            /* Hide contact button to save space */
 
             /* Main Nav Menu - Kept Horizontal */
             .nav-menu {
-                gap: 15px; /* Reduced gap for smaller screens */
+                gap: 15px;
+                /* Reduced gap for smaller screens */
             }
 
             .nav-link {
@@ -415,7 +552,7 @@
             .dropdown-menu {
                 /* Resetting to absolute position like desktop */
                 position: absolute;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
                 background: rgba(15, 23, 42, 0.95);
                 width: 260px;
                 padding: 15px;
@@ -434,13 +571,20 @@
                 transform: translateX(-50%);
             }
 
-            .dropdown-menu li { margin-bottom: 10px; width: auto; }
+            .dropdown-menu li {
+                margin-bottom: 10px;
+                width: auto;
+            }
+
             .dropdown-menu a {
                 justify-content: flex-start;
                 font-size: 14px;
                 text-align: left;
             }
-            .dropdown-header { text-align: left; }
+
+            .dropdown-header {
+                text-align: left;
+            }
 
             /* Hero Section Adjustments */
             .hero {
@@ -448,30 +592,282 @@
                 padding: 120px 5% 50px;
                 text-align: center;
             }
-            .hero-content { max-width: 100%; margin-top: 50px; display: flex; flex-direction: column; align-items: center; }
-            .exp-card { text-align: left; }
-            .btn-group, .social-links { justify-content: center; }
-            .hero-img-container { width: 280px; height: 280px; }
-            h1 { font-size: 42px; }
+
+            .hero-content {
+                max-width: 100%;
+                margin-top: 50px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .exp-card {
+                text-align: left;
+            }
+
+            .btn-group,
+            .social-links {
+                justify-content: center;
+            }
+
+            .hero-img-container {
+                width: 280px;
+                height: 280px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
         }
-        
+
         @media (max-width: 480px) {
-            .logo { font-size: 24px; }
-            .nav-menu { gap: 10px; }
-            .nav-link { font-size: 14px; }
-            .hero-img-container { width: 220px; height: 220px; }
-            h1 { font-size: 36px; }
-            .subtitle { font-size: 18px; }
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-menu {
+                gap: 10px;
+            }
+
+            .nav-link {
+                font-size: 14px;
+            }
+
+            .hero-img-container {
+                width: 220px;
+                height: 220px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+        }
+
+        /* --- PROFESSIONAL SECTION (Refined) --- */
+        .pro-section {
+            padding: 100px 8%;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            letter-spacing: -1px;
+        }
+
+        /* Profile Summary - Centered & Focused */
+        .profile-summary-card {
+            max-width: 900px;
+            margin: 0 auto 50px;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .profile-summary-card p {
+            text-align: justify;
+            text-align-last: center;
+            /* Nice touch for centered look but readable lines */
+            font-size: 16px;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+
+        /* Balanced Grid Layout */
+        .pro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            align-items: start;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            /* Softer corners */
+            padding: 35px;
+            transition: all 0.3s ease;
+            height: 100%;
+            /* Uniform height if in row */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: var(--primary-cyan);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .card-title i {
+            color: var(--primary-purple);
+        }
+
+        /* Timeline (Experience) */
+        .timeline {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -31px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--bg-dark);
+            border: 3px solid var(--primary-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary-cyan);
+        }
+
+        .role {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .company {
+            font-size: 15px;
+            color: var(--primary-cyan);
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .duration {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            display: block;
+            font-family: monospace;
+        }
+
+        .job-desc {
+            font-size: 15px;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .job-desc li {
+            margin-bottom: 8px;
+            list-style: none;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .job-desc li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-purple);
+        }
+
+        /* Education Item */
+        .edu-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border: none;
+        }
+
+        /* Skills & Hobbies Tags */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            /* More professional rectangular tag */
+            font-size: 14px;
+            color: #e2e8f0;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-cyan);
+            color: var(--bg-darker);
+            transform: translateY(-2px);
+            border-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .pro-section {
+                padding: 60px 5%;
+            }
+
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+
+            .pro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-summary-card {
+                padding: 25px;
+            }
+
+            .profile-summary-card p {
+                text-align: left;
+                text-align-last: left;
+            }
+
+            /* Better for mobile reading */
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <a href="#" class="logo">Faizan.</a>
 
         <ul class="nav-menu">
-            
+
             <li class="nav-item dropdown-trigger">
                 <div class="nav-link">Services <i class="fa-solid fa-chevron-down"></i></div>
                 <ul class="dropdown-menu">
@@ -487,14 +883,17 @@
                 <div class="nav-link">Portfolio <i class="fa-solid fa-chevron-down"></i></div>
                 <ul class="dropdown-menu" style="width: 300px;">
                     <li><span class="dropdown-header">About & Skills</span></li>
-                    <li><a href="#">Introduction: BSCS qualified CX professional at LAAM.pk ensuring smooth shopping experiences.</a></li>
+                    <li><a href="#">Introduction: BSCS qualified CX professional at LAAM.pk ensuring smooth shopping
+                            experiences.</a></li>
                     <li><a href="#">Skills: HTML, CSS, JS, Web Testing, Chrome Extensions, UI/UX.</a></li>
-                    
+
                     <li><span class="dropdown-header" style="margin-top: 10px;">Experience</span></li>
                     <li><a href="#">2 Years Seedcred Finance (CX)<br>2 Years LAAM.pk (CX)</a></li>
 
                     <li><span class="dropdown-header" style="margin-top: 10px;">Projects</span></li>
-                    <li><a href="https://laam-rejected-pdi.netlify.app" target="_blank" style="color: var(--primary-cyan);"><i class="fa-solid fa-link"></i> View Live Project (LAAM PDI)</a></li>
+                    <li><a href="https://laam-rejected-pdi.netlify.app" target="_blank"
+                            style="color: var(--primary-cyan);"><i class="fa-solid fa-link"></i> View Live Project (LAAM
+                            PDI)</a></li>
                 </ul>
             </li>
         </ul>
@@ -506,12 +905,12 @@
 
 
     <section class="hero">
-        
+
         <div class="hero-content">
             <span class="hello-tag">Frontend Developer & CX Specialist</span>
-            
+
             <h1>I'm <span class="name-gradient">Muhammad Faizan</span></h1>
-            
+
             <p class="subtitle">
                 Specialized in CX, <b>CRM Solutions</b>, and <b>Web Development</b>.
             </p>
@@ -525,32 +924,44 @@
             </div>
 
             <p class="description">
-                A detail-oriented professional blending technical expertise in HTML, CSS, and JavaScript with 4 years of Customer Experience. I build seamless web solutions and ensure positive user interactions.
+                A detail-oriented professional blending technical expertise in HTML, CSS, and JavaScript with 4 years of
+                Customer Experience. I build seamless web solutions and ensure positive user interactions.
             </p>
 
             <div class="btn-group">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fizikhan041@gmail.com&su=Hiring Inquiry - Portfolio Contact" target="_blank" class="btn-cyan">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fizikhan041@gmail.com&su=Hiring Inquiry - Portfolio Contact"
+                    target="_blank" class="btn-cyan">
                     <i class="fa-solid fa-paper-plane"></i> Hire Me
                 </a>
-                
+
                 <a href="https://wa.me/923360144031" target="_blank" class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
                 </a>
-                
+
                 <a href="https://www.upwork.com/freelancers/~01d2cb6f5d2e49dc1e" target="_blank" class="btn-upwork">
                     <svg class="upwork-logo" viewBox="0 0 24 24">
-                        <path d="M12.017 13.311c-.598 0-1.087-.49-1.087-1.088 0-.598.49-1.087 1.087-1.087.598 0 1.088.489 1.088 1.087 0 .598-.49 1.088-1.088 1.088zm0-2.736c-.909 0-1.648.74-1.648 1.648 0 .909.739 1.648 1.648 1.648.909 0 1.648-.739 1.648-1.648 0-.908-.739-1.648-1.648-1.648zm-7.721 2.736c-.598 0-1.087-.49-1.087-1.088 0-.598.49-1.087 1.087-1.087.598 0 1.087.489 1.087 1.087 0 .598-.489 1.088-1.087 1.088zm0-2.736c-.909 0-1.648.74-1.648 1.648 0 .909.739 1.648 1.648 1.648s1.648-.739 1.648-1.648c0-.908-.739-1.648-1.648-1.648zm15.442 2.736c-.598 0-1.087-.49-1.087-1.088 0-.598.49-1.087 1.087-1.087.598 0 1.088.489 1.088 1.087 0 .598-.49 1.088-1.088 1.088zm0-2.736c-.909 0-1.648.74-1.648 1.648 0 .909.739 1.648 1.648 1.648.909 0 1.648-.739 1.648-1.648 0-.908-.739-1.648-1.648-1.648zM21.5 7.5h-2.5v2h2.5c.827 0 1.5.673 1.5 1.5v8c0 .827-.673 1.5-1.5 1.5h-19c-.827 0-1.5-.673-1.5-1.5v-8c0-.827.673-1.5 1.5-1.5h2.5v-2h-2.5c-1.93 0-3.5 1.57-3.5 3.5v8c0 1.93 1.57 3.5 3.5 3.5h19c1.93 0 3.5-1.57 3.5-3.5v-8c0-1.93-1.57-3.5-3.5-3.5zM9.5 5.5c0-.827.673-1.5 1.5-1.5s1.5.673 1.5 1.5v4c0 .827-.673 1.5-1.5 1.5s-1.5-.673-1.5-1.5v-4zm6 0c0-.827.673-1.5 1.5-1.5s1.5.673 1.5 1.5v4c0 .827-.673 1.5-1.5 1.5s-1.5-.673-1.5-1.5v-4z"/>
+                        <path
+                            d="M12.017 13.311c-.598 0-1.087-.49-1.087-1.088 0-.598.49-1.087 1.087-1.087.598 0 1.088.489 1.088 1.087 0 .598-.49 1.088-1.088 1.088zm0-2.736c-.909 0-1.648.74-1.648 1.648 0 .909.739 1.648 1.648 1.648.909 0 1.648-.739 1.648-1.648 0-.908-.739-1.648-1.648-1.648zm-7.721 2.736c-.598 0-1.087-.49-1.087-1.088 0-.598.49-1.087 1.087-1.087.598 0 1.087.489 1.087 1.087 0 .598-.489 1.088-1.087 1.088zm0-2.736c-.909 0-1.648.74-1.648 1.648 0 .909.739 1.648 1.648 1.648s1.648-.739 1.648-1.648c0-.908-.739-1.648-1.648-1.648zm15.442 2.736c-.598 0-1.087-.49-1.087-1.088 0-.598.49-1.087 1.087-1.087.598 0 1.088.489 1.088 1.087 0 .598-.49 1.088-1.088 1.088zm0-2.736c-.909 0-1.648.74-1.648 1.648 0 .909.739 1.648 1.648 1.648.909 0 1.648-.739 1.648-1.648 0-.908-.739-1.648-1.648-1.648zM21.5 7.5h-2.5v2h2.5c.827 0 1.5.673 1.5 1.5v8c0 .827-.673 1.5-1.5 1.5h-19c-.827 0-1.5-.673-1.5-1.5v-8c0-.827.673-1.5 1.5-1.5h2.5v-2h-2.5c-1.93 0-3.5 1.57-3.5 3.5v8c0 1.93 1.57 3.5 3.5 3.5h19c1.93 0 3.5-1.57 3.5-3.5v-8c0-1.93-1.57-3.5-3.5-3.5zM9.5 5.5c0-.827.673-1.5 1.5-1.5s1.5.673 1.5 1.5v4c0 .827-.673 1.5-1.5 1.5s-1.5-.673-1.5-1.5v-4zm6 0c0-.827.673-1.5 1.5-1.5s1.5.673 1.5 1.5v4c0 .827-.673 1.5-1.5 1.5s-1.5-.673-1.5-1.5v-4z" />
                     </svg>
                     Hire on Upwork
+                </a>
+
+                <a href="https://www.fiverr.com/faizandevlogs" target="_blank" class="btn-fiverr">
+                    <span style="font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 16px;">fi</span> Hire
+                    on Fiverr
                 </a>
             </div>
 
             <div class="social-links">
-                <a href="https://www.facebook.com/fizikhan0626/" target="_blank" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/fizikhan_0626?igsh=NTVmcGVyN250cjQ0" target="_blank" class="social-icon ig"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://wa.me/923360144031" target="_blank" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://www.linkedin.com/in/muhammad-faizan-655967302/" target="_blank" class="social-icon li"><i class="fa-brands fa-linkedin-in"></i></a>
-                
+                <a href="https://www.facebook.com/fizikhan0626/" target="_blank" class="social-icon fb"><i
+                        class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/fizikhan_0626?igsh=NTVmcGVyN250cjQ0" target="_blank"
+                    class="social-icon ig"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/923360144031" target="_blank" class="social-icon wa"><i
+                        class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/muhammad-faizan-655967302/" target="_blank"
+                    class="social-icon li"><i class="fa-brands fa-linkedin-in"></i></a>
+
             </div>
         </div>
 
@@ -559,6 +970,114 @@
             <img src="image_6.png" alt="Muhammad Faizan">
         </div>
 
+    </section>
+
+    <!-- --- PROFESSIONAL SECTION --- -->
+    <section class="pro-section" id="professional">
+        <h2 class="section-title">Professional <span class="name-gradient">Journey</span></h2>
+
+        <!-- Profile Summary (Centered) -->
+        <div class="glass-card profile-summary-card">
+            <h3 class="card-title" style="justify-content: center; border: none; padding: 0;"><i
+                    class="fa-solid fa-user-tie"></i> Profile Summary</h3>
+            <p>
+                Dedicated Customer Service Professional with over 1 year of experience in handling customer queries
+                through email and live chat support in a fast-paced e-commerce environment. Proven ability to resolve
+                issues efficiently, maintain high customer satisfaction, and communicate with empathy and clarity.
+                Skilled in ticket management, order tracking, and coordination with internal teams. Known for being
+                detail-oriented, reliable, and committed to delivering a smooth customer experience.
+            </p>
+        </div>
+
+        <div class="pro-grid">
+            <!-- Experience Card -->
+            <div class="glass-card">
+                <h3 class="card-title"><i class="fa-solid fa-briefcase"></i> Work Experience</h3>
+
+                <div class="timeline">
+                    <!-- LAAM -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="role">Customer Service Executive</span>
+                        <span class="company">LAAM Ltd.</span>
+                        <span class="duration">June 2023 – Present</span>
+                        <ul class="job-desc">
+                            <li>Spearheaded customer communications via email and live chat, prioritizing Fast Response
+                                times.</li>
+                            <li>Orchestrated end-to-end support for order tracking, technical product inquiries, and
+                                pre/post-sale assistance.</li>
+                            <li>Championed a "Customer-First" culture by delivering empathetic, accurate, and
+                                high-quality information.</li>
+                            <li>Bridged Technical Gaps by collaborating with internal operations, warehouse, and brand
+                                teams.</li>
+                            <li>Mastered Ticket Management utilizing Zoho Helpdesk, Zoho IM, and Zoho SalesIQ.</li>
+                            <li>Consistently exceeded targets for response speed, resolution time, and CSAT scores.</li>
+                        </ul>
+                    </div>
+
+                    <!-- SeedCred -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="role">Verification & Customer Services</span>
+                        <span class="company">SeedCred</span>
+                        <span class="duration">March 2022 – 2023</span>
+                        <ul class="job-desc">
+                            <li>Administered end-to-end customer support workflows and identity verification protocols.
+                            </li>
+                            <li>Accelerated query resolution via professional email and live chat platforms.</li>
+                            <li>Mentored junior team members and guided daily operational activities.</li>
+                            <li>Optimized service processes by implementing technical improvements.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Card -->
+            <div class="glass-card">
+                <h3 class="card-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+
+                <div class="edu-item">
+                    <span class="role" style="font-size: 16px;">BS Computer Science</span>
+                    <span class="company">Khawaja Fareed University RYK</span>
+                    <span class="duration">2022 - Continue</span>
+                    <p style="font-size: 14px; color: var(--text-gray);">Major: CS, Mathematics, Programming (HTML, JS,
+                        C++, CSS)</p>
+                </div>
+
+                <div class="edu-item">
+                    <span class="role" style="font-size: 16px;">ICS, Matriculation</span>
+                    <span class="company">Daanish School & College Hasilpur</span>
+                    <span class="duration">2014 - 2022</span>
+                    <p style="font-size: 14px; color: var(--text-gray);">Major: CS, Physics, Mathematics</p>
+                </div>
+            </div>
+
+            <!-- Skills & Hobbies Card -->
+            <div class="glass-card">
+                <h3 class="card-title"><i class="fa-solid fa-bolt"></i> Skills & Hobbies</h3>
+
+                <h4 style="color: var(--text-white); margin-bottom: 15px; font-size: 16px;">Professional Skills</h4>
+                <div class="tag-container" style="margin-bottom: 30px;">
+                    <span class="skill-tag">Full-Stack eCommerce</span>
+                    <span class="skill-tag">CRM (Zoho)</span>
+                    <span class="skill-tag">AI Workflow Optimization</span>
+                    <span class="skill-tag">Order Management</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Time Management</span>
+                </div>
+
+                <h4 style="color: var(--text-white); margin-bottom: 15px; font-size: 16px;">Hobbies & Interests</h4>
+                <div class="tag-container">
+                    <span class="skill-tag">Calligraphy</span>
+                    <span class="skill-tag">Cricket</span>
+                    <span class="skill-tag">AI Creativity</span>
+                    <span class="skill-tag">Video Editing</span>
+                    <span class="skill-tag">Image Editing</span>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <script>
@@ -584,4 +1103,5 @@
     </script>
 
 </body>
+
 </html>
